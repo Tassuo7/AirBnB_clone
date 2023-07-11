@@ -1,5 +1,5 @@
 # AirBnB_clone
-![img](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230711%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230711T163316Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=26ae2c4751c62820b9e5f10a4a57af375c0c117b97a59e00f2bca747df2c3c9d)
+![img](https://www.aydentownsley.com/img/hbnb.png)
 ## Project Description
 The AirBnB clone project is to deploy on your server a simple copy of the [AirBnB website](https://fr.airbnb.com/?_set_bev_on_new_domain=1689093982_NDQ0M2I3YWY1MTcy). The clone includes the implementation of a command interpreter to manage AirBnB objects and a storage system to store and retrieve data.
 ## Steps
