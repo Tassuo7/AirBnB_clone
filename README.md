@@ -43,6 +43,7 @@ EOF  help  quit
 (hbnb) 
 $
 ```
+
 AUTHORS :pencil:
 * Abdelhamid Oussat
 * Salma Lahmidi
