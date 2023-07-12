@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import uuid
+from models import storage
 from datetime import datetime
 """
 This is module to defines BaseModel Class
@@ -36,6 +37,7 @@ class BaseModel:
     def save(self):
         """updates the attribute updated_at with the current datetime"""
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values"""
