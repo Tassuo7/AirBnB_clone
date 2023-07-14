@@ -5,7 +5,6 @@ the entry point of the command interpreter
 import cmd
 import sys
 
-
 class HBNBCommand(cmd.Cmd):
     """
     use the module cmd to implement command interpreter
@@ -20,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
         """ EOF to exit the program """
         return True
 
-    #Help is provided by default by cmd
+    # Help is provided by default by cmd
     def emptyline(self):
         """ shouldn’t execute anything """
         pass
