@@ -6,6 +6,7 @@ import cmd
 import sys
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """
     use the module cmd to implement command interpreter
@@ -15,20 +16,20 @@ class HBNBCommand(cmd.Cmd):
     __classe = {"BaseModel"}
 
     def do_quit(self, line):
-        """ quit to exit the program """
+        """Quit command to exit the program """
         return True
 
     def do_EOF(self, line):
-        """ EOF to exit the program """
+        """EOF to exit the program """
         return True
 
     # Help is provided by default by cmd
     def emptyline(self):
-        """ shouldn’t execute anything """
+        """Shouldn’t execute anything """
         pass
 
     def parseline(self, line):
-        """splits the line into arguments"""
+        """Splits the line into arguments"""
         arguments = cmd.Cmd.parseline(self, line)
         return arguments
 
@@ -44,5 +45,6 @@ class HBNBCommand(cmd.Cmd):
             print(eval(argms[0])().id)
             storage.save
 
-    if __name__ == '__main__':
-        HBNBCommand().cmdloop()
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
