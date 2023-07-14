@@ -5,6 +5,7 @@ the entry point of the command interpreter
 import cmd
 import sys
 
+
 class HBNBCommand(cmd.Cmd):
     """
     use the module cmd to implement command interpreter
