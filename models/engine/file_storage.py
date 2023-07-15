@@ -46,9 +46,8 @@ class FileStorage:
             with open(FileStorage.__file_path, "r") as fl:
                 ob_d = json.load(fl)
                 for k, obj_atr in ob_d.items():
-                    class_n, obj_id = k.split(".")
-                    class_m = globals()[class_n]
-                    o = class_m(**obj_atr)
-                    FileStorage.__objects[k] = o
+                    class_n = obj_atr['__class__']
+                    del obj_atr['__class__']
+                    FileStorage.__objects[k] = eval(class_n)(**obj_atr)
         except FileNotFoundError:
             return
