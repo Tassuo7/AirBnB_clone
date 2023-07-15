@@ -3,6 +3,7 @@
 module to defines class FileStorage
 """
 import json
+from models.user import User
 from models.base_model import BaseModel
 
 
