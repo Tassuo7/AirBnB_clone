@@ -5,6 +5,7 @@ the entry point of the command interpreter
 import cmd
 import sys
 from models import storage
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -75,6 +76,21 @@ class HBNBCommand(cmd.Cmd):
         else:
             del __objects["{}.{}".format(argms[0], argms[1])]
             storage.save()
+
+    def do_all(self, line):
+        """Prints all string representation of all instances
+        based or not on the class name"""
+        argms = self.parseline(line)
+        if (len(argms) > 0 and argms[0] not in HBNBCommand.__classe):
+            print("** class doesn't exist **")
+        else:
+            inst = []
+            for obj in storage.all().values():
+                if len(argms) == 0:
+                    inst.append(obj.__str__())
+                elif (len(argms) > 0 and argms[0] == obj.__class__.__name__):
+                    inst.append(obj.__str__())
+            print(inst)
 
 
 if __name__ == '__main__':
