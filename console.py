@@ -4,6 +4,12 @@ the entry point of the command interpreter
 """
 import cmd
 import sys
+from models.user import User
+from models.city import City
+from models.review import Review
+from models.amenity import Amenity
+from models.state import State
+from models.place import Place
 from models import storage
 from models.base_model import BaseModel
 
@@ -14,7 +20,8 @@ class HBNBCommand(cmd.Cmd):
     """
     prompt = '(hbnb) '
     """we need to create known classe"""
-    __classe = {"BaseModel"}
+    __classe = {"BaseModel", "User", "State", "City",
+                "Place", "Amenity", "Review"}
 
     def do_quit(self, line):
         """Quit command to exit the program """
