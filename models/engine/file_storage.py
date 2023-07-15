@@ -5,6 +5,7 @@ module to defines class FileStorage
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """
     class that serializes instances to a JSON
