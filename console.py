@@ -38,16 +38,17 @@ class HBNBCommand(cmd.Cmd):
 
     def parseln(self, line):
         """Splits the line into arguments"""
-        comarg = line.split()
-        return comarg
+        argms = line.split()
+        print(argms)
+        return argms
 
     def do_create(self, line):
         """Creates a new instance of BaseModel
         saves it (to the JSON file) and prints the id"""
-        argms = self.parseline(line)
-        if len(argms) == 1:
+        argms = self.parseln(line)
+        if len(argms) == 0:
             print("** class name missing **")
-        elif argms[1] not in HBNBCommand.__classe:
+        elif argms[0] not in HBNBCommand.__classe:
             print("** class doesn't exist **")
         else:
             print(eval(argms[0])().id)
@@ -63,31 +64,31 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(argms) == 1:
             print("** instance id missing **")
-        elif ("{}.{}".format(argms[1], argms[2]) not in storage.all().keys()):
+        elif ("{}.{}".format(argms[0], argms[1]) not in storage.all().keys()):
             print("** no instance found **")
         else:
-            print(__objects["{}.{}".format(argms[0], argms[1])])
+            print(storage.all()["{}.{}".format(argms[0], argms[1])])
 
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id
         (save the change into the JSON file)"""
-        argms = self.parseline(line)
+        argms = self.parseln(line)
         if len(argms) == 0:
             print("** class name missing **")
         elif argms[0] not in HBNBCommand.__classe:
             print("** class doesn't exist **")
         elif len(argms) == 1:
             print("** instance id missing **")
-        elif ("{}.{}".format(argms[1], argms[2]) not in storage.all().keys()):
+        elif ("{}.{}".format(argms[0], argms[1]) not in storage.all().keys()):
             print("** no instance found **")
         else:
-            del __objects["{}.{}".format(argms[0], argms[1])]
+            del storage.all()["{}.{}".format(argms[0], argms[1])]
             storage.save()
 
     def do_all(self, line):
         """Prints all string representation of all instances
         based or not on the class name"""
-        argms = self.parseline(line)
+        argms = self.parseln(line)
         if (len(argms) > 0 and argms[0] not in HBNBCommand.__classe):
             print("** class doesn't exist **")
         else:
@@ -104,8 +105,6 @@ class HBNBCommand(cmd.Cmd):
         by adding or updating attribute
         save the change into the JSON file
         Usage: update <class name> <id> <attribute name> <attribute value>"""
-        
-
 
 
 if __name__ == '__main__':
