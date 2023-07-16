@@ -29,11 +29,11 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def default(self, line):
-        command_parts = line.split('.')
-        if len(command_parts) >= 2:
-            class_name = command_parts[0]
-            command = command_parts[1].split('(')[0]
-            if command == 'all':
+        command_p = line.split('.')
+        if len(command_p) >= 2:
+            class_name = command_p[0]
+            commd = command_p[1].split('(')[0]
+            if commd == 'all':
                 return self.do_all(class_name)
         return super().default(line)
 
