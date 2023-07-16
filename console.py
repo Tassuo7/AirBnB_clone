@@ -28,6 +28,15 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program """
         return True
 
+    def default(self, line):
+        command_parts = line.split('.')
+        if len(command_parts) >= 2:
+            class_name = command_parts[0]
+            command = command_parts[1].split('(')[0]
+            if command == 'all':
+                return self.do_all(class_name)
+        return super().default(line)
+
     def do_EOF(self, line):
         """EOF to exit the program """
         return True
