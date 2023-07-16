@@ -39,7 +39,6 @@ class HBNBCommand(cmd.Cmd):
     def parseln(self, line):
         """Splits the line into arguments"""
         argms = line.split()
-        print(argms)
         return argms
 
     def do_create(self, line):
@@ -101,10 +100,36 @@ class HBNBCommand(cmd.Cmd):
             print(inst)
 
     def do_update(self, line):
-        """Updates an instance based on the class name and id
+        """
+        Updates an instance based on the class name and id
         by adding or updating attribute
         save the change into the JSON file
-        Usage: update <class name> <id> <attribute name> <attribute value>"""
+        Usage: update <class name> <id> <attribute name> <attribute value>
+        we can assume:
+            the attribute name is valid
+            id, created_at and updated_at won’t be passed
+            nobody will try to update list of ids or datetime
+            arguments are always in the right order
+            Each arguments are separated by a space
+            A string argument with a space must be between double quote
+        """
+        argms = self.parseln(line)
+        if len(argms) == 0:
+            print("** class name missing **")
+        elif argms[0] not in HBNBCommand.__classe:
+            print("** class doesn't exist **")
+        elif len(argms) == 1:
+            print("** instance id missing **")
+        elif ("{}.{}".format(argms[0], argms[1]) not in storage.all().keys()):
+            print("** no instance found **")
+        elif len(argms) == 2:
+            print("** attribute name missing **")
+        elif len(argms) == 3:
+            print("** value missing **")
+        elif len(argms) >= 4:
+            element = storage.all()["{}.{}".format(argms[0], argms[1])]
+            setattr(element, argms[2], argms[3])
+            storage.save()
 
 
 if __name__ == '__main__':
