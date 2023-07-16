@@ -37,6 +37,8 @@ class HBNBCommand(cmd.Cmd):
                 return self.do_all(class_name)
             if commd == 'count':
                 return self.do_count(class_name)
+            if commd == 'show':
+                return self.do_show(class_name)
         return super().default(line)
 
     def do_EOF(self, line):
