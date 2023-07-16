@@ -3,6 +3,7 @@
 the entry point of the command interpreter
 """
 import cmd
+import ast
 import sys
 from models.user import User
 from models.city import City
@@ -97,7 +98,8 @@ class HBNBCommand(cmd.Cmd):
                     inst.append(obj.__str__())
                 elif (len(argms) > 0 and argms[0] == obj.__class__.__name__):
                     inst.append(obj.__str__())
-            print(inst)
+            cinst = [b.strip("\\") for b in inst]
+            print(cinst)
 
     def do_update(self, line):
         """
