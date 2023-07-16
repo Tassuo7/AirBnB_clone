@@ -113,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         """Prints all string representation of all instances
-        based or not on the class name"""
+        based or not on the class nam"""
         argms = self.parseln(line)
         if (len(argms) > 0 and argms[0] not in HBNBCommand.__classe):
             print("** class doesn't exist **")
@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
             for obj in storage.all().values():
                 if len(argms) == 0:
                     inst.append(obj.__str__())
-                elif (len(argms) > 0 and argms[0] == obj.__class__.__name__):
+                if (len(argms) > 0 and argms[0] == obj.__class__.__name__):
                     inst.append(obj.__str__())
             cinst = [b.strip("\\") for b in inst]
             print(cinst)
