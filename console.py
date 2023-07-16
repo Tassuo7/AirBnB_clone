@@ -35,6 +35,8 @@ class HBNBCommand(cmd.Cmd):
             commd = command_p[1].split('(')[0]
             if commd == 'all':
                 return self.do_all(class_name)
+            if commd == 'count':
+                return self.do_count(class_name)
         return super().default(line)
 
     def do_EOF(self, line):
@@ -50,6 +52,19 @@ class HBNBCommand(cmd.Cmd):
         """Splits the line into arguments"""
         argms = line.split()
         return argms
+
+    def do_count(self, class_n):
+        if not class_n:
+            print("** class name missing **")
+            return
+        if class_n not in self.__classe:
+            print("** class doesn't exist **")
+            return
+        n = 0
+        for obj in storage.all().values():
+            if obj.__class__.__name__ == class_n:
+                n += 1
+        print(n)
 
     def do_create(self, line):
         """Creates a new instance of BaseModel
