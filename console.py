@@ -3,7 +3,6 @@
 the entry point of the command interpreter
 """
 import cmd
-import ast
 import sys
 from models.user import User
 from models.city import City
@@ -29,6 +28,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def default(self, line):
+        """Otherwise"""
         command_p = line.split('.')
         if len(command_p) >= 2:
             class_name = command_p[0]
@@ -56,6 +56,7 @@ class HBNBCommand(cmd.Cmd):
         return argms
 
     def do_count(self, class_n):
+        """retrieve the number of instances of a class"""
         if not class_n:
             print("** class name missing **")
             return
