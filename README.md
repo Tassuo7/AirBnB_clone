@@ -43,6 +43,22 @@ EOF  help  quit
 (hbnb) 
 $
 ```
+To quit the console, enter the command quit
+```
+$ ./console.py
+(hbnb) quit
+$
+```
+## Console Commands
+* create
+```
+$ ./console.py
+(hbnb) create BaseModel
+```
+* show
+```
+Usage: show <class> <id> or <class>.show(<id>)
+```
 
 AUTHORS :pencil:
 * Abdelhamid Oussat
