@@ -1,0 +1,31 @@
+/* common style*/
+body {
+  color: #484848;
+  font: 14px Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html, body
+{
+overflow-x: hidden;
+width: 100%;
+}
+/* Container style */
+.container {
+  margin: 30px auto;
+  max-width: 1000px;
+}
+
+@media screen and (max-width: 800px) {
+  .place {
+    width: calc(50% - 20px); /* Adjust width to create 2 columns with 20px spacing */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .place {
+    width: 100%; /* Full width on small screens */
+  }
+
+  .amenities li {
+    margin-right: 15px; /* Reduce margin to fit in smaller screens */
+  }
+}
